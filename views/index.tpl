@@ -26,4 +26,13 @@
         <p>You can easily publish to Microsoft Azure using Visual Studio. Find out how you can host your application using a free trial today.</p>
         <p><a class="btn btn-default" href="http://azure.microsoft.com">Learn more &raquo;</a></p>
     </div>
+    <div class="col-md-4">
+    <h2> Ask a Question </h2>
+    <form action="/home" method="post">
+        <p><textarea rows="2" cols="50" name="QUEST" placeholder="Your question" style="resize: none;" ></textarea></p> 
+        <p><input type="text" size="50" name="ADRESS" placeholder="Your email"></p>
+        <p ><input type="submit"  value="Send" class="btn btn-default"></p>
+    </form>
+    </div>
+
 </div>
