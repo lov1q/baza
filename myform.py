@@ -4,23 +4,23 @@ from datetime import datetime
 
 @post('/home')
 def my_form():
-    # Получение данных из формы
+    # ГЏГ®Г«ГіГ·ГҐГ­ГЁГҐ Г¤Г Г­Г­Г»Гµ ГЁГ§ ГґГ®Г°Г¬Г»
     mail = request.forms.get('ADRESS')
     question = request.forms.get('QUEST')
     username = request.forms.get('USERNAME')
 
-    # Проверка заполненности полей формы
+    # ГЏГ°Г®ГўГҐГ°ГЄГ  Г§Г ГЇГ®Г«Г­ГҐГ­Г­Г®Г±ГІГЁ ГЇГ®Г«ГҐГ© ГґГ®Г°Г¬Г»
     if not mail or not question or not username:
         return "Error: Please fill in all fields."
 
-    # Проверка формата адреса электронной почты
-    if not re.match(r"[^@]+@[^@]+\.[^@]+", mail):
+    # ГЏГ°Г®ГўГҐГ°ГЄГ  ГґГ®Г°Г¬Г ГІГ  Г Г¤Г°ГҐГ±Г  ГЅГ«ГҐГЄГІГ°Г®Г­Г­Г®Г© ГЇГ®Г·ГІГ»
+    if not re.match(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", mail):
         return "Error: Invalid email address format."
 
-    # Получение текущей даты в сокращенном формате
+    # ГЏГ®Г«ГіГ·ГҐГ­ГЁГҐ ГІГҐГЄГіГ№ГҐГ© Г¤Г ГІГ» Гў Г±Г®ГЄГ°Г Г№ГҐГ­Г­Г®Г¬ ГґГ®Г°Г¬Г ГІГҐ
     access_date = datetime.now().strftime("%Y-%m-%d")
 
-    # Формирование результирующего сообщения с обращением по имени и датой
+    # Г”Г®Г°Г¬ГЁГ°Г®ГўГ Г­ГЁГҐ Г°ГҐГ§ГіГ«ГјГІГЁГ°ГіГѕГ№ГҐГЈГ® Г±Г®Г®ГЎГ№ГҐГ­ГЁГї Г± Г®ГЎГ°Г Г№ГҐГ­ГЁГҐГ¬ ГЇГ® ГЁГ¬ГҐГ­ГЁ ГЁ Г¤Г ГІГ®Г©
     result_message = f"Thanks, {username}! The answer will be sent to the mail {mail}. Access Date: {access_date}"
 
     return result_message
